@@ -10,6 +10,11 @@ num = (input("\nDigite o numero da conversão: "))
 opt2 = int(input("\nEscolha a conversão final desejada:\n [1] HEXADECIMAL\n [2] DECIMAL\n [3] OCTAL\n Sua opção: "))
 os.system('cls')
 
+#MENSAGEM DE ERRO CASO NÃO SEJA UM NUMERO BINARIO
+if not all(d in "01" for d in num):
+    print("[ERRO] O número fornecido não é um número binário válido. Tente novamente.\n")
+    exit()    
+
 #BINARIO PARA DECIMAL
 if opt == 1 and opt2 == 2:
     decimal = 0
