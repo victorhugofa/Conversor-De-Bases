@@ -1,19 +1,21 @@
-
-
-
 import os
 os.system('cls')
 print("[DECODIFICADOR BINARIO | HEXADECIMAL | DECIMAL | OCTAL]\n")
 
-opt = int(input("Escolha a conversão desejada:\n [1] BINARIO\n Sua opção: "))
-num = (input("\nDigite o numero da conversão: "))
-opt2 = int(input("\nEscolha a conversão final desejada:\n [1] HEXADECIMAL\n [2] DECIMAL\n [3] OCTAL\n Sua opção: "))
+try: 
+    opt = int(input("Escolha a conversão desejada:\n [1] BINARIO\n Sua opção: "))
+    num = int(input("\nDigite o numero da conversão: "))
+    opt2 = int(input("\nEscolha a conversão final desejada:\n [1] HEXADECIMAL\n [2] DECIMAL\n [3] OCTAL\n Sua opção: "))
+#MENSAGEM DE ERRO CASO O USUARIO DIGITE LETRAS
+except ValueError:
+    print("[ERRO] Digite apenas números e não letras. Tente novamente.\n")
+    exit()
 os.system('cls')
 
 #MENSAGEM DE ERRO CASO NÃO SEJA UM NUMERO BINARIO
-if not all(d in "01" for d in num):
-    print("[ERRO] O número fornecido não é um número binário válido. Tente novamente.\n")
-    exit()    
+if not num.isdigit() or not all(d in "01" for d in num):
+    print("[ERRO] O valor inserido não é um número binário válido. Tente novamente.\n")
+    exit() 
 
 #BINARIO PARA DECIMAL
 if opt == 1 and opt2 == 2:
